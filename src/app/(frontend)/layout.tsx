@@ -15,6 +15,7 @@ import { draftMode } from 'next/headers'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import Script from 'next/script'
 
 const fonts = Lato({
   subsets: ['latin'],
@@ -56,6 +57,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
         </Providers>
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="7646547b-cb84-4063-966e-39c730d3f005"
+        />
       </body>
     </html>
   )
