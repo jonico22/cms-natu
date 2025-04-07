@@ -1,9 +1,6 @@
 'use client'
 
-import type { StaticImageData } from 'next/image'
-
 import { cn } from '@/utilities/ui'
-import NextImage from 'next/image'
 import React from 'react'
 
 import type { Props as MediaProps } from '../types'
@@ -33,7 +30,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   let width: number | undefined
   let height: number | undefined
   let alt = altFromProps
-  let src: StaticImageData | string = srcFromProps || ''
+  let src: string = (typeof srcFromProps === 'string' ? srcFromProps : srcFromProps?.src) || ''
 
   if (!src && resource && typeof resource === 'object') {
     const { alt: altFromResource, height: fullHeight, url, width: fullWidth } = resource
@@ -58,15 +55,10 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
   return (
     <picture className={cn(pictureClassName || 'card-image-wrapper')}>
-      <NextImage
+      <img
         alt={alt || ''}
         className={cn(imgClassName || 'card-image-modern')}
-        fill={fill}
         height={!fill ? height : undefined}
-        placeholder="blur"
-        blurDataURL={placeholderBlur}
-        priority={priority}
-        quality={100}
         loading={loading}
         sizes={sizes}
         src={src}
