@@ -19,6 +19,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   useEffect(() => {
     setHeaderTheme(null)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -28,6 +29,11 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     if (headerTheme && headerTheme !== theme) setTheme(headerTheme)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
+
+  // Close menu when pathname changes (i.e., when a link is clicked)
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [pathname])
 
   return (
     <header className="site-header white-header relative z-20">
@@ -62,8 +68,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white  p-4 md:hidden">
-            <HeaderNav data={data} />
+          <div className="absolute top-full left-0 right-0 bg-white p-4 md:hidden">
+            <HeaderNav data={data} onItemClick={() => setIsMenuOpen(false)} />
           </div>
         )}
       </div>
