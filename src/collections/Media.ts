@@ -55,5 +55,16 @@ export const Media: CollectionConfig = {
         crop: 'center',
       },
     ],
+    pasteURL: {
+      allowList: [
+        {
+          hostname: 'pub-43649c5da8d44940a0f6c2c1828054ff.r2.dev', // required
+          pathname: 'image-natu',
+          port: '',
+          protocol: 'https',
+          search: '',
+        },
+      ],
+    },
   },
 }

@@ -6,7 +6,7 @@ import React from 'react'
 import type { Props as MediaProps } from '../types'
 
 import { cssVariables } from '@/cssVariables'
-import { getClientSideURL } from '@/utilities/getURL'
+import { getClientSideURL, getClientSideURLImage } from '@/utilities/getURL'
 
 const { breakpoints } = cssVariables
 
@@ -40,8 +40,10 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     alt = altFromResource || ''
 
     const cacheTag = resource.updatedAt
-
-    src = `${getClientSideURL()}${url}?${cacheTag}`
+    // obtener el ultima path de la url
+    const lastPath = url ? url.split('/').pop() : ''
+    console.log('url', lastPath)
+    src = `${getClientSideURLImage()}${lastPath}?${cacheTag}`
   }
 
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined)

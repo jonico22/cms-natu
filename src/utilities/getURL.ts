@@ -29,3 +29,7 @@ export const getClientSideURL = () => {
 
   return process.env.NEXT_PUBLIC_SERVER_URL || ''
 }
+
+export const getClientSideURLImage = () => {
+  return process.env.NEXT_PUBLIC_R2_ENDPOINT_URL || ''
+}
