@@ -34,11 +34,11 @@ export default async function Page({ params: paramsPromise }: Args) {
   })
 
   return (
-    <div className="pt-24 pb-24">
+    <div>
       <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+      <div className="nature-banner-internal">
+        <div className="banner-content-internal">
+          <h2>Noticias</h2>
         </div>
       </div>
 

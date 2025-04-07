@@ -47,6 +47,20 @@
     --success: 196 52% 74%;
     --warning: 34 89% 85%;
     --error: 10 100% 86%;
+    --dark-green: #2D3B1F;
+    --medium-green: #5A7640;
+    --mustard-yellow: #E9A733;
+    --light-beige: #EDE3C5;
+    --content-bg: white;
+    --text-on-dark: var(--light-beige);
+    --text-on-light: var(--dark-green);
+    --body-bg: #f9f9f7; /* Fondo general */
+    --news-bg: var(--body-bg);
+    --mustard-yellow: #E9A733;
+    --light-beige: #EDE3C5;
+    --white: #FFFFFF;
+    --article-bg: white;
+    --text-color-on-yellow: var(--dark-green);
   }
 
   [data-theme='dark'] {
@@ -100,4 +114,436 @@ html {
 html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
+}
+
+/* Estilos Generales */
+body { margin: 0; font-family: 'Lato', sans-serif; background-color: var(--body-bg); color: var(--text-on-light); line-height: 1.7; font-size: 16px; }
+img { max-width: 100%; height: auto; display: block; } /* Imágenes responsivas por defecto */
+a { color: var(--mustard-yellow); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--dark-green); }
+
+.site-header.white-header {
+  background-color: var(--white); /* Fondo blanco */
+  padding: 15px 0;
+  border-bottom: 1px solid #eee; /* Borde sutil */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+.site-header.white-header img {
+  max-width: 130px;
+}
+
+
+
+/* --- FOOTER (Simple con SVGs - Igual que antes) --- */
+.site-footer-simple { background-color: var(--medium-green); color: var(--light-beige); padding: 40px 0 20px 0; }
+.footer-grid-simple { display: grid; grid-template-columns: auto repeat(3, 1fr); gap: 30px 40px; align-items: start; }
+.footer-logo-simple a { display: inline-block; }
+.footer-logo-simple img { display: block; max-width: 130px; height: auto; filter: brightness(0) invert(1); opacity: 0.9; transition: opacity 0.3s ease; }
+.footer-logo-simple a:hover img { opacity: 1; }
+.footer-contact-simple, .footer-links-simple, .footer-social-simple { padding-top: 5px; }
+.footer-contact-simple h4, .footer-links-simple h4, .footer-social-simple h4 { color: var(--white); font-size: 1.05em; font-weight: bold; margin-top: 0; margin-bottom: 15px; }
+.footer-contact-simple p { margin-bottom: 10px; }
+.footer-contact-simple a { color: var(--light-beige); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s ease; }
+.footer-contact-simple a:hover { color: var(--mustard-yellow); }
+.footer-icon { width: 1.2em; height: 1.2em; fill: currentColor; vertical-align: middle; }
+.footer-links-simple ul { list-style: none; padding: 0; margin: 0; }
+.footer-links-simple li { margin-bottom: 8px; }
+.footer-links-simple a { color: var(--light-beige); text-decoration: none; transition: color 0.3s ease, padding-left 0.3s ease; }
+.footer-links-simple a:hover { color: var(--mustard-yellow); padding-left: 4px; }
+.social-icons-simple { display: flex; flex-wrap: wrap; gap: 15px; }
+.social-icons-simple a { color: var(--light-beige); display: inline-block; transition: color 0.3s ease, transform 0.3s ease; }
+.social-icons-simple a:hover { color: var(--mustard-yellow); transform: translateY(-2px); }
+.social-icon { width: 1.4em; height: 1.4em; }
+.footer-copyright-simple { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(237, 227, 197, 0.15); font-size: 0.85em; opacity: 0.7; }
+
+/* Estilos del Banner */
+.nature-banner-internal {
+  background-color: var(--mustard-yellow); /* Fondo amarillo */
+  padding: 80px 20px; /* Espaciado interno (vertical, horizontal) */
+  text-align: center; /* Centra el contenido */
+  width: 100%;
+  box-sizing: border-box; 
+  margin-bottom: 2em;
+}
+
+.banner-content-internal {
+  max-width: 800px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centra el contenedor del contenido */
+}
+
+.nature-banner-internal h2 {
+  color: var(--text-color-on-yellow); 
+  font-size: 2.8em; /* Tamaño de fuente grande */
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* --- RESPONSIVIDAD --- */
+
+/* Para Tablets y pantallas medianas */
+@media (max-width: 768px) {
+  .nature-banner {
+      padding: 40px 15px;
+  }
+
+  .nature-banner h2 {
+      font-size: 2.2em; /* Reducir tamaño de título */
+  }
+
+}
+
+/* Para Móviles */
+@media (max-width: 480px) {
+  .nature-banner {
+      padding: 30px 10px;
+  }
+
+  .nature-banner h2 {
+      font-size: 1.8em; /* Reducir más el título */
+  }
+
+}
+/* --- SECCIÓN PROPÓSITO --- */
+.purpose-section {
+  padding: 60px 0;
+  background-color: var(--content-bg); /* Fondo blanco */
+}
+.purpose-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 40px; /* Espacio entre imagen y texto */
+  align-items: center; /* Alinear verticalmente */
+}
+.purpose-image img {
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.purpose-text h2 {
+  color: var(--medium-green);
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1em;
+  display: inline-block;
+  border-bottom: 2px solid var(--mustard-yellow);
+  padding-bottom: 0.3em;
+}
+.purpose-text p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: var(--text-on-light); /* Asegurar color verde oscuro */
+}
+/* Botón opcional dentro de propósito */
+.purpose-cta { margin-top: 20px; }
+.cta-button { /* Estilo general para botones */
+  display: inline-block;
+  background-color: var(--mustard-yellow);
+  color: var(--dark-green);
+  padding: 12px 28px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.cta-button:hover {
+  background-color: #d49425;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(45, 59, 31, 0.15);
+}
+
+.section-title { /* Título "Últimas Noticias" */
+  text-align: center;
+  color: var(--dark-green);
+  font-size: 2.2em;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+
+/* Estilo de cada Tarjeta Moderna */
+.nature-card-modern { background-color: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+.nature-card-modern:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(45, 59, 31, 0.15); }
+.card-image-wrapper { overflow: hidden; }
+.card-image-modern { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.4s ease; background-color: var(--medium-green); }
+.nature-card-modern:hover .card-image-modern { transform: scale(1.05); }
+.card-content-modern { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+.card-title-modern { color: var(--dark-green); font-size: 1em; margin-top: 0; margin-bottom: 15px; line-height: 1.3; font-weight: 700; flex-grow: 1; }
+.card-link { color: var(--mustard-yellow); text-decoration: none; font-weight: bold; font-size: 0.95em; transition: color 0.3s ease; align-self: flex-start; }
+.card-link:hover { color: var(--medium-green); text-decoration: underline; }
+/* -- Fin Estilos Tarjetas -- */
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 900px) { /* Tabletas */
+  .hero-banner h1 { font-size: 2.2em; }
+  .purpose-grid { grid-template-columns: 1fr; gap: 30px; } /* Apilar propósito */
+  .purpose-image { order: 2; } /* Imagen debajo del texto en tablet/móvil */
+  .purpose-text { order: 1; text-align: center; } /* Texto arriba y centrado */
+  .purpose-text h2 { display: inline-block; } /* Mantener borde bajo el título */
+  .section-title { font-size: 2em; }
+  .footer-grid-simple { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .footer-logo-simple { grid-column: span 2; text-align: center; margin-bottom: 10px; }
+  .footer-logo-simple img { display: inline-block; }
+}
+
+@media (max-width: 600px) { /* Móviles */
+  .container { padding: 0 15px; }
+  /* Header móvil */
+  .site-header.white-header nav { margin-top: 10px; }
+  .site-header.white-header nav a { margin: 5px 8px; display: inline-block; /* Mejor para envolver */ }
+  /* Hero móvil */
+  .hero-banner { padding: 60px 15px; }
+  .hero-banner h1 { font-size: 1.9em; }
+  /* Propósito móvil */
+  .purpose-section { padding: 40px 0; }
+  .purpose-text p { font-size: 1em; }
+  /* Noticias móvil */
+  .news-section { padding: 40px 0; }
+  .section-title { font-size: 1.8em; margin-bottom: 30px; }
+  .card-container-modern { grid-template-columns: 1fr; gap: 25px; } /* Una columna de tarjetas */
+  /* Footer móvil */
+  .footer-grid-simple { grid-template-columns: 1fr; text-align: center; gap: 25px; }
+  .footer-logo-simple { grid-column: auto; margin-bottom: 0; }
+  .footer-contact-simple, .footer-links-simple, .footer-social-simple { text-align: center; }
+  .footer-contact-simple a, .footer-links-simple ul { justify-content: center; }
+  .social-icons-simple { justify-content: center; }
+  .footer-contact-simple h4, .footer-links-simple h4, .footer-social-simple h4 { display: block; }
+}
+
+/* --- Estilos del Banner con Imagen --- */
+.image-banner {
+  /* --- La Imagen de Fondo --- */
+  background-image: url('../../../public/banner.webp'); /* <-- CAMBIA ESTA URL POR TU IMAGEN */
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  /* --- Dimensiones y Espaciado --- */
+  padding: 100px 20px; 
+  min-height: 40vh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+  height: 70vh;
+  /* --- Posicionamiento para el Overlay --- */
+  position: relative; 
+  z-index: 1; 
+}
+
+
+/* --- Overlay Oscuro para Legibilidad --- */
+.image-banner::before {
+  content: ""; 
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-color); 
+  z-index: 1; 
+}
+
+/* --- Contenido del Banner (Texto y Botón) --- */
+.banner-content {
+  position: relative; 
+  z-index: 2;
+  max-width: 800px; 
+  margin: 0 auto; 
+  color: var(--text-color-banner); 
+}
+
+.banner-content h2 {
+  font-size: 2em; /* Tamaño del título */
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 768px) {
+  .image-banner {
+      padding: 80px 15px; 
+      min-height: 35vh;
+  }
+  .banner-content h2 {
+      font-size: 2em; 
+  }
+}
+
+@media (max-width: 480px) {
+  .image-banner {
+      padding: 60px 10px; 
+      min-height: 30vh;
+  }
+  .banner-content h2 {
+      font-size: 1.5em; 
+  }
+}
+
+
+/* Contenedor del Artículo */
+.article-container {
+  max-width: 850px; /* Ancho óptimo para lectura */
+  margin: 40px auto; /* Espacio arriba/abajo, centrado */
+  background-color: var(--article-bg);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+/* Cabecera del Artículo */
+.article-header {
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 1px solid #eee; /* Separador sutil */
+   padding-bottom: 20px;
+}
+
+.article-title {
+  color: var(--dark-green);
+  margin-bottom: 10px;
+  font-family: 'Lato';
+  font-weight: 700;
+}
+
+.article-meta {
+  color: var(--medium-green);
+  font-size: 0.95em;
+  margin-bottom: 0;
+}
+.article-meta .author {
+  font-weight: bold;
+}
+
+/* Contenido del Artículo */
+.article-content {
+  font-size: 1.1em; /* Tamaño de fuente ligeramente mayor para lectura */
+}
+
+.article-content p {
+  margin-bottom: 1em; /* Espacio entre párrafos */
+}
+
+.article-content h1 {
+  color: var(--medium-green);
+  margin-top: 1.3em;
+  margin-bottom: 1.3em;
+  line-height: 1.5;
+  border-bottom: 2px solid var(--mustard-yellow); /* Línea de acento */
+  padding-bottom: 0.3em;
+}
+
+.article-content h2 {
+  color: var(--medium-green);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.3;
+  border-bottom: 2px solid var(--mustard-yellow); /* Línea de acento */
+  padding-bottom: 0.3em;
+}
+
+.article-content h3 { /* Si necesitas h3 */
+  color: var(--medium-green);
+  font-size: 1.4em;
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  border-bottom: 2px solid var(--mustard-yellow); /* Línea de acento */
+  padding-bottom: 0.3em;
+}
+.article-content h4 { /* Si necesitas h3 */
+  color: var(--medium-green);
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  line-height: 1.5;
+  border-bottom: 2px solid var(--mustard-yellow); /* Línea de acento */
+  padding-bottom: 0.3em;
+}
+
+.article-content a {
+  color: var(--mustard-yellow);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 1px dashed var(--mustard-yellow);
+}
+
+.article-content a:hover {
+  color: var(--dark-green);
+  border-bottom: 1px solid var(--dark-green);
+}
+
+.article-content .card-image-wrapper{
+  text-align: center;
+}
+
+.article-content .card-image-wrappe img{
+  display: inline-block;
+}
+
+.about-container {
+  background-color: var(--content-bg);
+  padding: 20px 20px 50px 20px; /* Padding ajustado */
+  margin-top: 2.5em;
+  margin-bottom: 40px; /* Espacio antes del footer */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+/* Estilos Secciones (Introducción, Misión, Valores - Igual que antes) */
+.about-section { margin-bottom: 40px; max-width: 850px; margin-left: auto; margin-right: auto; }
+.about-container h2 { color: var(--medium-green); margin-top: 1em; margin-bottom: 1.2em; padding-bottom: 0.3em; border-bottom: 2px solid var(--mustard-yellow); display: inline-block; }
+.about-container h3 { color: var(--medium-green); margin-top: 1em; margin-bottom: 1.2em; padding-bottom: 0.3em; border-bottom: 2px solid var(--mustard-yellow); display: inline-block; }
+.about-container h4 { color: var(--medium-green); margin-top: 1em; margin-bottom: 1.2em; padding-bottom: 0.3em; border-bottom: 2px solid var(--mustard-yellow); display: inline-block; }
+.about-container p { font-size: 1.1em; margin-bottom: 1em; }
+.about-container a { color: var(--mustard-yellow);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, border-bottom 0.3s ease; }
+.about-container .values-section h2 { font-size: 2em;font-weight: 700; text-align: center; display: block; border-bottom: none; margin-bottom: 1em;margin-top: 0; }
+.value-item { margin-bottom: 2.5em; padding-left: 15px; border-left: 3px solid var(--light-beige); }
+.value-item h3 { color: var(--dark-green); font-size: 1.5em; margin-top: 0; margin-bottom: 0.6em; display: flex; align-items: center; }
+.value-icon { margin-right: 10px; font-size: 1.3em; color: var(--mustard-yellow); }
+.value-item p { font-size: 1.05em; margin-bottom: 0; color: #444; }
+
+/* --- ESTILOS PÁGINA 404 --- */
+.not-found-container {
+  background-color: var(--content-bg);
+  padding: 60px 30px; /* Padding generoso */
+  margin: 40px auto; /* Margen vertical, centrado horizontal */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  text-align: center; /* Centrar todo el contenido */
+  max-width: 700px; /* Limitar el ancho */
+}
+
+.error-code {
+  font-size: 8em; /* Muy grande */
+  font-weight: 700;
+  color: var(--error-code-color); /* Verde medio */
+  line-height: 1;
+  margin-bottom: 0px;
+  opacity: 0.8;
+}
+
+.not-found-container h1 {
+  font-size: 2.5em;
+  color: var(--dark-green);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.not-found-container p {
+  font-size: 1.1em;
+  color: var(--text-on-light);
+  margin-bottom: 15px;
+  max-width: 500px; /* Limitar ancho del párrafo */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-actions {
+  margin-top: 35px;
 }

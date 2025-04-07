@@ -10,12 +10,12 @@ import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { searchFields } from '@/search/fieldOverrides'
 import { beforeSyncWithSearch } from '@/search/beforeSync'
-
+import { s3Storage } from '@payloadcms/storage-s3'
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+  return doc?.title ? `${doc.title} |  Website Naturaleza Hermana` : ' Website Naturaleza Hermana'
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
@@ -23,6 +23,37 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
 
   return doc?.slug ? `${url}/${doc.slug}` : url
 }
+
+const storage = s3Storage({
+  collections: {
+    media: {
+      disableLocalStorage: true, // Recommended for production
+      prefix: 'media', // Optional prefix for uploaded files
+    },
+  },
+  bucket:
+    process.env.R2_BUCKET ||
+    (() => {
+      throw new Error('S3_BUCKET environment variable is not defined')
+    })(),
+  config: {
+    endpoint: process.env.R2_ENDPOINT,
+    credentials: {
+      accessKeyId:
+        process.env.R2_ACCESS_KEY_ID ||
+        (() => {
+          throw new Error('R2_ACCESS_KEY_ID environment variable is not defined')
+        })(),
+      secretAccessKey:
+        process.env.R2_SECRET_ACCESS_KEY ||
+        (() => {
+          throw new Error('R2_SECRET_ACCESS_KEY environment variable is not defined')
+        })(),
+    },
+    region: 'auto', // Required for R2
+    forcePathStyle: true, // Required for R2
+  },
+})
 
 export const plugins: Plugin[] = [
   redirectsPlugin({
@@ -91,4 +122,5 @@ export const plugins: Plugin[] = [
     },
   }),
   payloadCloudPlugin(),
+  storage,
 ]

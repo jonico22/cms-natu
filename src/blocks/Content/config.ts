@@ -1,12 +1,13 @@
 import type { Block, Field } from 'payload'
 
 import {
+  BlocksFeature,
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-
+import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { link } from '@/fields/link'
 
 const columnFields: Field[] = [
@@ -41,6 +42,7 @@ const columnFields: Field[] = [
         return [
           ...rootFeatures,
           HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
+          BlocksFeature({ blocks: [MediaBlock] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
         ]

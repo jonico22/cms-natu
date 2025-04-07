@@ -30,16 +30,12 @@ export const Card: React.FC<{
   const href = `/${relationTo}/${slug}`
 
   return (
-    <article
-      className={cn(
-        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer',
-        className,
-      )}
-      ref={card.ref}
-    >
+    <article className={cn('nature-card-modern', className)} ref={card.ref}>
       <div className="relative w-full ">
         {!metaImage && <div className="">No image</div>}
-        {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
+        {metaImage && typeof metaImage !== 'string' && (
+          <Media resource={metaImage} size="33vw" className="card-image-wrapper" />
+        )}
       </div>
       <div className="p-4">
         {showCategories && hasCategories && (
@@ -69,12 +65,11 @@ export const Card: React.FC<{
           </div>
         )}
         {titleToUse && (
-          <div className="prose">
-            <h3>
-              <Link className="not-prose" href={href} ref={link.ref}>
-                {titleToUse}
-              </Link>
-            </h3>
+          <div className="card-content-modern">
+            <h3 className="card-title-modern">{titleToUse}</h3>
+            <Link className="card-link" href={href} ref={link.ref}>
+              Leer más →
+            </Link>
           </div>
         )}
         {description && <div className="mt-2">{description && <p>{sanitizedDescription}</p>}</div>}

@@ -57,10 +57,10 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         .join(', ')
 
   return (
-    <picture className={cn(pictureClassName)}>
+    <picture className={cn(pictureClassName || 'card-image-wrapper')}>
       <NextImage
         alt={alt || ''}
-        className={cn(imgClassName)}
+        className={cn(imgClassName || 'card-image-modern')}
         fill={fill}
         height={!fill ? height : undefined}
         placeholder="blur"
