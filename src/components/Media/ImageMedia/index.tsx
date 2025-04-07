@@ -42,7 +42,6 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     const cacheTag = resource.updatedAt
     // obtener el ultima path de la url
     const lastPath = url ? url.split('/').pop() : ''
-    console.log('url', lastPath)
     src = `${getClientSideURLImage()}${lastPath}?${cacheTag}`
   }
 
