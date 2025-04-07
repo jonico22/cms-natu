@@ -62,7 +62,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white dark:bg-black p-4 md:hidden">
+          <div className="absolute top-full left-0 right-0 bg-white  p-4 md:hidden">
             <HeaderNav data={data} />
           </div>
         )}
