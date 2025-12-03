@@ -92,9 +92,10 @@ export default async function Page({ params: paramsPromise }: Args) {
               <div className="purpose-text">
                 <h2>Nuestro Propósito</h2>
                 <p>
-                  Defender nuestro medioambiente de la contaminación ambiental ocasionada por las
-                  empresas transnacionales que cuando se ven involucradas en casos de catástrofes
-                  ambientales o la violación de derechos humanos, la justicia tarda en llegar.
+                  Naturaleza Hermana existe para fortalecer la ciudadanía, elevar los estándares del
+                  debate público y visibilizar temas que afectan la salud, la biodiversidad y el
+                  futuro del país. Nuestro compromiso es con la gente y con la verdad, sin
+                  intermediarios ni condicionamientos.
                 </p>
                 <Link href="/nuestros-propositos" className="cta-button purpose-cta">
                   Saber Más
